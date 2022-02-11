@@ -1,0 +1,410 @@
+//================================Item.java=====================================
+
+
+public class Item {
+    private int id;
+	    private String title;
+	    private String author;
+	    private int noc;
+	    public Item()
+	    {
+	    	id = 0;
+	        title = null;
+	        author = null;
+	        noc = 0;  
+	    }
+	    public Item(int id, String title, String author, 
+	                 int noc)
+	    {
+	    	this.id = id;
+	        this.title = title;
+	        this.author = author;
+	        this.noc = noc;  
+	    }
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getTitle() {
+			return title;
+		}
+
+		public void setTitle(String title) {
+			this.title = title;
+		}
+
+		public String getAuthor() {
+			return author;
+		}
+
+		public void setAuthor(String author) {
+			this.author = author;
+		}
+
+		public int getNoc() {
+			return noc;
+		}
+
+		public void setNoc(int noc) {
+			this.noc = noc;
+		} 
+}
+class MediaItem extends Item{
+    private int id;
+    private String title;
+    private int noc;
+    private String dir;
+    private String gener;
+    private int year;
+    private int runtime;
+    public MediaItem(){
+        id = 0;
+        title = null;
+        noc = 0;
+        dir = null;
+        gener = null;
+        year = 0;
+        runtime = 0;
+    }
+    public MediaItem(int id, String title, int noc, String dir, String gener, int year, int runtime){
+        this.id = id;
+        this.title = title;
+        this.noc = noc;
+        this.dir = dir;
+        this.gener = gener;
+        this.year = year;
+        this.runtime = runtime;
+    }
+
+public String getDir() {
+		return dir;
+	}
+	public void setDir(String dir) {
+		this.dir = dir;
+	}
+	public String getGener() {
+		return gener;
+	}
+	public void setGener(String gener) {
+		this.gener = gener;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	public int getRuntime() {
+		return runtime;
+	}
+	public void setRuntime(int runtime) {
+		this.runtime = runtime;
+	}
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getNoc() {
+        return noc;
+    }
+
+    public void setNoc(int noc) {
+        this.noc = noc;
+    }
+}
+class JouneralPaper extends MediaItem{
+    private String author;
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+}
+class Cd extends MediaItem{
+    private String artist;
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+    
+}
+class Video extends MediaItem{
+    private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+    
+}
+
+
+
+//=======================================Store.java======================================
+
+import java.util.*;
+import java.io.*;
+class Store{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Item it = new Item(101, "Kill the rust", "Juned", 330); 
+        MediaItem mt = new MediaItem(111, "Action Movie", 12,"Juned", "imdb", 2022, 123);
+        JouneralPaper jp = new JouneralPaper();
+        Cd cc = new Cd();
+        Video vd = new Video();
+        jp.setAuthor("xyz");
+        jp.setYear(2021);
+        jp.setId(1100);
+        jp.setTitle("Jgran");
+        jp.setNoc(110);
+        cc.setArtist("qwe");
+        cc.setId(199);
+        cc.setTitle("Cd Player");
+        cc.setNoc(133);
+        cc.setTitle("cd title");
+        cc.setGener("cd gener");
+        cc.setRuntime(130);
+        vd.setDir("Juned");
+        vd.setGener("ght");
+        vd.setId(120);
+        vd.setNoc(50);
+        vd.setRuntime(500);
+        vd.setTitle("Sad Video");
+        vd.setType("Short Video");
+        int n;
+        int n1;
+        System.out.println("Choose the option for the output:");
+        System.out.println("1. for Movie Details: ");
+        System.out.println("2. for Book Details: ");
+        System.out.println("3. for jouneralist details: ");
+        System.out.println("4.  for CD details: ");
+        System.out.println("5.  for Video details: ");
+        System.out.println("Enter");
+        n1 = sc.nextInt();
+        switch(n1){
+            case 1:
+                    System.out.println("======================Movie-Details==========================");
+                    System.out.println("Id is: "+mt.getId());
+                    System.out.println("Title is: "+mt.getTitle());
+                    System.out.println("No. of Copy is: "+mt.getNoc());
+                    System.out.println("Director id: "+mt.getDir());
+                    System.out.println("Gener is: "+mt.getGener());
+                    System.out.println("Published Year is: "+mt.getYear());
+                    System.out.println("Runtime is: "+mt.getRuntime());
+                    System.out.println("Choose the option for:");
+                    System.out.println("1. for Checked in: ");
+                    System.out.println("2. for Checked out: ");
+                    System.out.println("Enter: ");
+                    n = sc.nextInt();
+                    if(n == 1)
+                    {
+                        System.out.println("Id is: "+mt.getId());
+                        System.out.println("Title is: "+mt.getTitle());
+                        System.out.println("Director id: "+mt.getDir());
+                        System.out.println("Gener is: "+mt.getGener());
+                        System.out.println("Published Year is: "+mt.getYear());
+                        System.out.println("Runtime is: "+mt.getRuntime());
+                        System.out.println("Number of Copies after checked in: ");
+                        System.out.println(mt.getNoc() + 1);
+                    }
+                    else if(n == 2)
+                    {
+                        System.out.println("Id is: "+mt.getId());
+                        System.out.println("Title is: "+mt.getTitle());
+                        System.out.println("Director id: "+mt.getDir());
+                        System.out.println("Gener is: "+mt.getGener());
+                        System.out.println("Published Year is: "+mt.getYear());
+                        System.out.println("Runtime is: "+mt.getRuntime());
+                        System.out.println("Number of Copies after checked out: ");
+                        System.out.println(mt.getNoc() - 1);
+                    }
+                    break;
+            case 2:
+                    System.out.println("======================Book-Details==========================");
+                    System.out.println("Id is: "+it.getId());
+                    System.out.println("Title is: "+it.getTitle());
+                    System.out.println("Author is: "+it.getAuthor());
+                    System.out.println("No. of Copy is: "+it.getNoc());
+                    System.out.println("Choose the option for:");
+                    System.out.println("1. for Checked in: ");
+                    System.out.println("2. for Checked out: ");
+                    System.out.println("Enter: ");
+                    n = sc.nextInt();
+                    if(n == 1)
+                    {
+                        System.out.println("Id is: "+it.getId());
+                        System.out.println("Title is: "+it.getTitle());
+                        System.out.println("Author is: "+it.getAuthor());
+                        System.out.println("Number of Copies after checked in: ");
+                        System.out.println(it.getNoc() + 1);
+                    }
+                    else if(n == 2)
+                    {
+                        System.out.println("Id is: "+it.getId());
+                        System.out.println("Title is: "+it.getTitle());
+                        System.out.println("Author is: "+it.getAuthor());
+                        System.out.println("Number of Copies after checked out: ");
+                        System.out.println(it.getNoc() - 1);
+                    }
+                    break;
+            case 3:
+                    System.out.println("=====================jouneralist-details==========================");
+                    System.out.println("Author is: "+jp.getAuthor());
+                    System.out.println("Id is: "+jp.getId());
+                    System.out.println("Title is: "+jp.getTitle());
+                    System.out.println("No. of Copy is: "+jp.getNoc());
+                    System.out.println("Published Year is: "+jp.getYear());
+                    System.out.println("Choose the option for:");
+                    System.out.println("1. for Checked in: ");
+                    System.out.println("2. for Checked out: ");
+                    System.out.println("Enter: ");
+                    n = sc.nextInt();
+                    if(n == 1)
+                    {
+                        System.out.println("Author is: "+jp.getAuthor());
+                        System.out.println("Id is: "+jp.getId());
+                        System.out.println("Title is: "+jp.getTitle());
+                        System.out.println("Published Year is: "+jp.getYear());
+                        System.out.println("Number of Copies after checked in: ");
+                        System.out.println(jp.getNoc() + 1);
+                    }
+                    else if(n == 2)
+                    {
+                        System.out.println("Author is: "+jp.getAuthor());
+                        System.out.println("Id is: "+jp.getId());
+                        System.out.println("Title is: "+jp.getTitle());
+                        System.out.println("Published Year is: "+jp.getYear());
+                        System.out.println("Number of Copies after checked out: ");
+                        System.out.println(jp.getNoc() - 1);
+                    }
+                    break;
+            case 4:
+                    System.out.println("======================CD-Details==========================");
+                    System.out.println("Id is: "+cc.getId());
+                    System.out.println("Title is: "+cc.getTitle());
+                    System.out.println("No. of Copy is: "+cc.getNoc());
+                    System.out.println("Gener is: "+cc.getGener());
+                    System.out.println("Artist is: "+cc.getArtist());
+                    System.out.println("RunTime is: "+cc.getRuntime());
+                    System.out.println("Choose the option for:");
+                    System.out.println("1. for Checked in: ");
+                    System.out.println("2. for Checked out: ");
+                    System.out.println("Enter: ");
+                    n = sc.nextInt();
+                    if(n == 1)
+                    {
+                        System.out.println("Id is: "+cc.getId());
+                        System.out.println("Title is: "+cc.getTitle());
+                        System.out.println("Gener is: "+cc.getGener());
+                        System.out.println("Artist is: "+cc.getArtist());
+                        System.out.println("RunTime is: "+cc.getRuntime());
+                        System.out.println("Number of Copies after checked in: ");
+                        System.out.println(cc.getNoc() + 1);   
+                    }
+                    else if(n == 2)
+                    {
+                        System.out.println("Id is: "+cc.getId());
+                        System.out.println("Title is: "+cc.getTitle());
+                        System.out.println("Gener is: "+cc.getGener());
+                        System.out.println("Artist is: "+cc.getArtist());
+                        System.out.println("RunTime is: "+cc.getRuntime());
+                        System.out.println("Number of Copies after checked out: ");
+                        System.out.println(cc.getNoc() - 1);  
+                    }
+                    break;
+            case 5: 
+                        System.out.println("======================Video-Details==========================");
+                        System.out.println("Id is: "+vd.getId());
+                        System.out.println("Title is: "+vd.getTitle());
+                        System.out.println("No. of Copy is: "+vd.getNoc());
+                        System.out.println("Director id: "+vd.getDir());
+                        System.out.println("Gener is: "+vd.getGener());
+                        System.out.println("Type is: "+vd.getType());
+                        System.out.println("RunTime is: "+mt.getRuntime());
+                        System.out.println("Choose the option for:");
+                        System.out.println("1. for Checked in: ");
+                        System.out.println("2. for Checked out: ");
+                        System.out.println("Enter: ");
+                        n = sc.nextInt();
+                        if(n == 1)
+                        {
+                            System.out.println("Id is: "+vd.getId());
+                            System.out.println("Title is: "+vd.getTitle());
+                            System.out.println("Director id: "+vd.getDir());
+                            System.out.println("Gener is: "+vd.getGener());
+                            System.out.println("Type is: "+vd.getType());
+                            System.out.println("RunTime is: "+mt.getRuntime());
+                            System.out.println("Number of Copies after checked in: ");
+                            System.out.println(vd.getNoc() + 1);
+                        }
+                        else if(n == 2)
+                        {
+                            System.out.println("Id is: "+vd.getId());
+                            System.out.println("Title is: "+vd.getTitle());
+                            System.out.println("Director id: "+vd.getDir());
+                            System.out.println("Gener is: "+vd.getGener());
+                            System.out.println("Type is: "+vd.getType());
+                            System.out.println("RunTime is: "+mt.getRuntime());
+                            System.out.println("Number of Copies after checked out: ");
+                            System.out.println(vd.getNoc() - 1);
+                        }
+                        break;     
+        }		
+    }
+}
+
+
+==========================OutPut========================
+
+Choose the option for the output:
+1. for Movie Details:
+2. for Book Details:
+3. for jouneralist details:
+4.  for CD details:
+5.  for Video details:
+Enter
+3
+=====================jouneralist-details==========================
+Author is: xyz
+Id is: 1100
+Title is: Jgran
+No. of Copy is: 110
+Published Year is: 2021
+Choose the option for:
+1. for Checked in:
+2. for Checked out:
+Enter:
+1
+Author is: xyz
+Id is: 1100
+Title is: Jgran
+Published Year is: 2021
+Number of Copies after checked in:
+111
